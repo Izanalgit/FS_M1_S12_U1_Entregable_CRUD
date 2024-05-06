@@ -1,9 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const users = require("./../data/users.js");
-let usuarios = users().usuarios;
-
 router.post("/usuarios",(req,res)=>{
     let usuarios = res.locals.usersObj;
     
@@ -14,8 +11,8 @@ router.post("/usuarios",(req,res)=>{
         lugarProcedencia:req.body.origen
     })
     res.locals.usersObj = usuarios;
+
     res.redirect('/');
 });
-
 
 module.exports = router;
